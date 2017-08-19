@@ -19,7 +19,7 @@ rm(BUILD_PATH, err => {
 const webpackConfig = {
   entry: {
     app: [
-      path.resolve(APP_PATH, 'app')             // app入口
+      path.resolve(APP_PATH, 'main')             // app入口
     ]
   },
   output: {
