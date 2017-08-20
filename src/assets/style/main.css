@@ -44,12 +44,20 @@
   font-size: 14px;
 }
 
+.todo-list li:hover {
+  background-color: #FCFCFC;
+}
+
 .todo-list li:last-child {
   border-bottom: none;
 }
 .todo-list li .label {
   margin-left: 10px;
   flex: 1;
+}
+
+.todo-list li .btn {
+  display: none;
 }
 
 .btn {

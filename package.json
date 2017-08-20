@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/liansky/react-todo#readme",
   "dependencies": {
+    "localdb": "^0.2.12",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TodoItem from './TodoItem'
 
 class TodoMain extends Component {
   
@@ -6,13 +7,9 @@ class TodoMain extends Component {
     return (
       <div className="todo-main">
         <ul className="todo-list">
-          <li>
-            <input type="checkbox"/>
-            <div className="label">吃饭</div>
-            <div className="action">
-              <button type="button" className="btn">删除</button>
-            </div>
-          </li>
+          {this.props.todos.map((todo, index) => {
+            return <TodoItem key={index} {...todo} index={index} {...this.props}/>
+          })}
         </ul>
       </div>
     )
