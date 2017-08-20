@@ -1,3 +1,7 @@
+## 技术栈
+react + react-dom + localdb + webpack3 + 热更新 + ES6/7 + flex
+>localdb主要实现数据持久化
+
 ## 项目运行
 ```
 git clone git@github.com:liansky/react-todo.git  
@@ -11,9 +15,6 @@ npm run dev (运行本地开发环境)
 npm run build (打包)
 
 ```
-## 技术栈
-react + react-dom + localdb + webpack3 + 热更新 + ES6/7 + flex
->localdb主要实现数据持久化
 
 ## 项目目的
 * 熟悉react 、react-dom相关api
