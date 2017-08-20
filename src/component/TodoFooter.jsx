@@ -7,9 +7,9 @@ class TodoFooter extends Component {
       <div className="todo-footer">
         <div className="value">
           <input type="checkbox"/>
-          <span>3已完成/6总数</span>
+          <span>3已完成 / 6总数</span>
         </div>
-        <div className="action"><button type="button" className="btn">清楚已完成</button></div>
+        <div className="action"><button type="button" className="btn">清除已完成</button></div>
       </div>
     )
   }

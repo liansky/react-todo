@@ -6,6 +6,10 @@ import TodoFooter from './TodoFooter'
 class App extends Component {
   constructor () {
     super()
+    this.state = {
+      todos: [],
+      isAllChecked: false
+    }
   }
   
   render () {
