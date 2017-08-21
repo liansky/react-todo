@@ -12,8 +12,8 @@ module.exports = {
     }
   },
   build: {
-    appPath: '../src',      // 源码入口
-    buildPath: '../dist',   // 产出路径
+    appPath: '../src',       // 源码入口
+    buildPath: '../dist',    // 产出路径
     publicPath: '/'          // 配置CDN路径
   },
 }
