@@ -3,11 +3,9 @@ import React, { Component } from 'react'
 class TodoItem extends Component {
   
   // 处理完成单个任务、是否完成
-  handlerChange (evt) {
+  handlerChange () {
     let isDone = this.props.isDone
     this.props.changeTodoState(this.props.index, !isDone)
-    evt.preventDefault()
-    evt.stopPropagation()
   }
   
   // 删除任务
@@ -34,13 +32,12 @@ class TodoItem extends Component {
       <li
         onMouseOver={this.handlerMouseOver.bind(this)}
         onMouseOut={this.handlerMouseOut.bind(this)}
-        onClick={this.handlerChange.bind(this)}
       >
-          <input type="checkbox" checked={this.props.isDone} onChange={this.handlerChange.bind(this)}/>
-          <div className="label" style={doneStyle}>{this.props.text}</div>
-          <div className="action">
-            <button type="button" className="btn" ref="deleteBtn" onClick={this.handlerDel.bind(this)}>删除</button>
-          </div>
+        <div><input type="checkbox" checked={this.props.isDone} onChange={this.handlerChange.bind(this)}/></div>
+        <div className="label" style={doneStyle} onClick={this.handlerChange.bind(this)}>{this.props.text}</div>
+        <div className="action">
+          <button type="button" className="btn" ref="deleteBtn" onClick={this.handlerDel.bind(this)}>删除</button>
+        </div>
       </li>
     )
   }
