@@ -7,9 +7,18 @@ class TodoMain extends Component {
     return (
       <div className="todo-main">
         <ul className="todo-list">
-          {this.props.todos.map((todo, index) => {
-            return <TodoItem key={index} {...todo} index={index} {...this.props}/>
-          })}
+          {
+            this.props.todos.map((todo, index) => {
+              return (
+                <TodoItem
+                  key={index}
+                  {...todo}
+                  index={index}
+                  {...this.props}
+                />
+              )
+            })
+          }
         </ul>
       </div>
     )

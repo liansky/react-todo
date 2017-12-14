@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
 
 class TodoItem extends Component {
+
+  constructor (props) {
+    super(props)
+  }
   
   // 处理完成单个任务、是否完成
   handlerChange () {
-    let isDone = this.props.isDone
-    this.props.changeTodoState(this.props.index, !isDone)
+    try {
+      this.props.changeTodoState(this.props.index, !this.props.isDone)
+    } catch (e) {
+      console.log(e.message)
+    }
   }
   
   // 删除任务
   handlerDel (evt) {
     this.props.delTodo(this.props.index)
+
     evt.preventDefault()
     evt.stopPropagation()
   }
