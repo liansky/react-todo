@@ -5,16 +5,9 @@ class TodoHeader extends Component {
   handleKeyUp (evt) {
     if (evt.keyCode === 13) {
       let val = evt.target.value
-      let newItem
-      
       if (!val) return false
-      
-      newItem = {
-        text: val,
-        isDone: false
-      }
       evt.target.value = ''
-      this.props.addTodo(newItem)
+      this.props.addTodo(val)
     }
   }
   

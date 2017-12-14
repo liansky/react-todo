@@ -8,7 +8,8 @@ class TodoFooter extends Component {
   
   // 处理全选与全不选的状态
   handlerAllState(event){
-    this.props.changeTodoState(null, event.target.checked, true)
+    this.props.changeAllTodoState(event.target.checked)
+
   }
   
   render () {
@@ -28,7 +29,8 @@ class TodoFooter extends Component {
             className="btn"
             onClick={this.handlerClearDone.bind(this)}
             style={btnStyle}
-            disabled={this.props.todoDoneCount <= 0}>清除已完成</button>
+            disabled={this.props.todoDoneCount <= 0}
+          >清除已完成</button>
         </div>
       </div>
     )
