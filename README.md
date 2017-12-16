@@ -22,10 +22,10 @@ npm run build (打包)
 * 熟悉jsx语法
 * 从零搭建webpack开发环境
 * 熟悉ES6/7新特性
+* 加入react-router4、react-redux
 
 ## 待完善
 * webpack环境加入编译sass、自动加浏览器前缀
-* 加入react-router4、react-redux
 * 加入axios处理前端请求
 * async／await异步处理
 
