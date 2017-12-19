@@ -3,7 +3,7 @@ import TodoHeader from './TodoHeader'
 import TodoMain from './TodoMain'
 import TodoFooter from './TodoFooter'
 import { connect } from 'react-redux'
-import { addTodo, delTodo, toggleTodo, completedAllTodo, cleanCompletedTodo } from '../redux/actions'
+import { addTodo, delTodo, toggleTodo, completedAllTodo, completedAllCheck, cleanCompletedTodo } from '../redux/actions'
 
 class App extends Component {
   constructor (props) {
@@ -36,6 +36,7 @@ class App extends Component {
 
   changeAllTodoState (isAllDone) {
     this.props.dispatch(completedAllTodo(isAllDone))
+    this.props.dispatch(completedAllCheck(isAllDone))
   }
   
   render () {
