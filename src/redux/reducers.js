@@ -5,13 +5,14 @@ import {
   DEL_TODO,
   COMPLETED_ALL_TODO,
   CLEAN_COMPLETED_TODO,
+  COMPLETED_ALL_CHECK,
   SET_VISIBILITY_FILTER
 } from './actions'
 
 
 function isAllDone(state = false, action) {
   switch (action.type) {
-    case COMPLETED_ALL_TODO:
+    case COMPLETED_ALL_CHECK:
       return !state
 
     default:

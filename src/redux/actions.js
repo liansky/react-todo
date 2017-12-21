@@ -2,6 +2,7 @@ export const ADD_TODO = 'ADD_TODO'          // 添加
 export const DEL_TODO = 'DEL_TODO'          // 删除
 export const TOGGLE_TODO = 'TOGGLE_TODO'    // 完成
 export const COMPLETED_ALL_TODO = 'COMPLETED_ALL_TODO' // 完成所有
+export const COMPLETED_ALL_CHECK = 'COMPLETED_ALL_CHECK'
 export const CLEAN_COMPLETED_TODO = 'CLEAN_COMPLETED_TODO'  // 清除已完成
 
 
@@ -23,6 +24,10 @@ export function toggleTodo (index, isDone) {
 
 export function completedAllTodo (isAllDone) {
   return{ type: COMPLETED_ALL_TODO, isAllDone }
+}
+
+export function completedAllCheck (isAllDone) {
+  return{ type: COMPLETED_ALL_CHECK, isAllDone }
 }
 
 export function cleanCompletedTodo () {
