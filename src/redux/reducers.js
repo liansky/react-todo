@@ -5,16 +5,25 @@ import {
   DEL_TODO,
   COMPLETED_ALL_TODO,
   CLEAN_COMPLETED_TODO,
-  COMPLETED_ALL_CHECK,
-  SET_VISIBILITY_FILTER
+  INCREMENT,
+  DECREMENT,
+  REST,
+  COMPLETED
 } from './actions'
 
-
-function isAllDone(state = false, action) {
+function todoDoneCount (state = 0, action) {
   switch (action.type) {
-    case COMPLETED_ALL_CHECK:
-      return !state
+    case INCREMENT:
+      return state + 1
 
+    case DECREMENT:
+      return state - 1
+
+    case REST:
+      return 0
+
+    case COMPLETED:
+      return action.length
     default:
       return state
   }
@@ -35,9 +44,10 @@ function todos(state = [], action) {
       return state.map((todo, index) => {
         if (index === action.index) {
           return Object.assign({}, todo, {
-            isDone: action.isDone
+            isDone: !todo.isDone
           })
         }
+        return todo
       })
 
     case DEL_TODO:
@@ -64,17 +74,9 @@ function todos(state = [], action) {
   }
 }
 
-/*combineReducers 等价于下面的写法
-export default function todoApp(state = {}, action) {
-  return {
-    todos: todos(state.todos, action)
-    isAllDone: isAllDone(state.todos.isAllDone, action)
-  }
-}*/
-
 const todoApp = combineReducers({
   todos,
-  isAllDone
+  todoDoneCount
 })
 
 export default todoApp
