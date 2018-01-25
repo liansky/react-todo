@@ -5,15 +5,15 @@ const initStore = {
   todoDoneCount: 1,
   todos: [
     {
-      text: '123',
+      text: '吃饭',
       isDone: true
     },
     {
-      text: '3243',
+      text: '上网',
       isDone: false
     },
     {
-      text: '456',
+      text: '打豆豆',
       isDone: false
     }
   ]
