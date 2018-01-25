@@ -1,6 +1,5 @@
 ## 技术栈
-react + react-dom + localdb + webpack3 + 热更新 + ES6/7 + flex
->localdb主要实现数据持久化
+react + react-dom + webpack3 + 热更新 + ES6/7 + flex
 
 ## 项目运行
 ```
@@ -22,12 +21,12 @@ npm run build (打包)
 * 熟悉jsx语法
 * 从零搭建webpack开发环境
 * 熟悉ES6/7新特性
+* 熟悉redux、react-redux
 
 ## 待完善
 * webpack环境加入编译sass、自动加浏览器前缀
-* 加入react-router4、react-redux
-* 加入axios处理前端请求
-* async／await异步处理
+* 加入react-router4
+* 加入mbox
 
 ## 项目截图
 ![效果图](./src/assets/img/react-todos.png)

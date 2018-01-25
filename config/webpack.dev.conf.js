@@ -11,7 +11,7 @@ const BUILD_PATH = path.resolve(__dirname, conf.build.buildPath);       // 发�
 module.exports = {
   entry: {
     app: [
-      'webpack-hot-middleware/client?noInfo=true',
+      'webpack-hot-middleware/client?noInfo=true&reload=true',
       path.resolve(APP_PATH, 'main')             // app入口
     ]
   },

@@ -9,18 +9,18 @@ class TodoFooter extends Component {
   // 处理全选与全不选的状态
   handlerAllState(event){
     this.props.changeAllTodoState(event.target.checked)
-
   }
   
   render () {
     let btnStyle = {
       backgroundColor: this.props.todoDoneCount > 0 ? '#F15B5A' : '#ccc'
     }
-    
+    let isChecked = this.props.todoDoneCount === this.props.todoCount && this.props.todoDoneCount !== 0
+
     return (
       <div className="todo-footer">
         <div className="value">
-          <input type="checkbox" checked={this.props.isAllChecked} onChange={this.handlerAllState.bind(this)}/>
+          <input type="checkbox" checked={isChecked} onChange={this.handlerAllState.bind(this)}/>
           <span>{this.props.todoDoneCount}已完成 / {this.props.todoCount}总数</span>
         </div>
         <div className="action">

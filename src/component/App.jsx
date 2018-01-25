@@ -3,15 +3,21 @@ import TodoHeader from './TodoHeader'
 import TodoMain from './TodoMain'
 import TodoFooter from './TodoFooter'
 import { connect } from 'react-redux'
-import { addTodo, delTodo, toggleTodo, completedAllTodo, completedAllCheck, cleanCompletedTodo } from '../redux/actions'
+import {
+  addTodo,
+  delTodo,
+  toggleTodo,
+  completedAllTodo,
+  cleanCompletedTodo,
+  increment,
+  decrement,
+  rest,
+  completed
+} from '../redux/actions'
 
 class App extends Component {
   constructor (props) {
     super(props)
-  }
-
-  componentWillUpdate(nextProps) {
-
   }
   
   // 添加任务
@@ -22,21 +28,34 @@ class App extends Component {
   // 删除任务
   delTodo (index) {
     this.props.dispatch(delTodo(index))
+    if (this.props.todos[index].isDone) {
+      this.props.dispatch(decrement())
+    }
   }
   
   // 清除已完成任务
   clearDoneTodo () {
     this.props.dispatch(cleanCompletedTodo())
+    this.props.dispatch(rest())
   }
   
   // 改变任务状态
   changeTodoState (index, isDone) {
-    this.props.dispatch(toggleTodo(index, isDone))
+    if (isDone) {
+      this.props.dispatch(increment())
+    } else {
+      this.props.dispatch(decrement())
+    }
+    this.props.dispatch(toggleTodo(index))
   }
 
   changeAllTodoState (isAllDone) {
+    if (isAllDone) {
+      this.props.dispatch(completed(this.props.todos.length))
+    } else {
+      this.props.dispatch(rest())
+    }
     this.props.dispatch(completedAllTodo(isAllDone))
-    this.props.dispatch(completedAllCheck(isAllDone))
   }
   
   render () {
@@ -56,9 +75,7 @@ class App extends Component {
         
         <TodoFooter
           todoCount={this.props.todos.length || 0}
-          todoDoneCount={
-            (this.props.todos && this.props.todos.filter((todo)=>todo.isDone)).length || 0
-          }
+          todoDoneCount={ this.props.todoDoneCount }
           changeAllTodoState={this.changeAllTodoState.bind(this)}
           clearDoneTodo={this.clearDoneTodo.bind(this)}
           isAllChecked={this.props.isAllDone}
@@ -72,7 +89,7 @@ class App extends Component {
 function select(state) {
   return {
     todos: state.todos,
-    isAllDone: state.isAllDone
+    todoDoneCount: state.todoDoneCount
   }
 }
 

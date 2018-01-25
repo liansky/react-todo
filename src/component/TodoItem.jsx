@@ -8,11 +8,7 @@ class TodoItem extends Component {
   
   // 处理完成单个任务、是否完成
   handlerChange () {
-    try {
-      this.props.changeTodoState(this.props.index, !this.props.isDone)
-    } catch (e) {
-      console.log(e.message)
-    }
+    this.props.changeTodoState(this.props.index, !this.props.isDone)
   }
   
   // 删除任务
